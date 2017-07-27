@@ -1,0 +1,34 @@
+.twc-citeExtension {
+	width: 9px;
+	height: 9px;
+	cursor: pointer;
+	position: absolute;
+	transform: translate(-12px, 6px);
+	opacity: 0;
+}
+
+.twc-citeExtension img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.message-line:hover .twc-citeExtension {
+	opacity: 1;
+}
+
+.twc-arrowImgLight {
+	opacity: 0
+}
+
+.twc-arrowImgDark {
+	opacity: 1;
+}
+
+.theme--dark .twc-arrowImgLight {
+	opacity: 1;
+}
+
+.theme--dark .twc-arrowImgDark {
+	opacity: 0
+}
