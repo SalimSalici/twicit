@@ -60,6 +60,25 @@
     arrowBtn.appendChild(arrowImgLight);
     arrowBtn.appendChild(arrowImgDark);
 
+    // Waiting for ajax to load chat
     setTimeout(init, 500);
 
+    // Detect when page reloads through ajax and reinitialize citer
+    document.addEventListener("twc-pageReloaded", function () {
+        init();
+    });
+
 })();
+
+(function(history){
+    var twc_pageReloadedEvent = new Event("twc-pageReloaded");
+    var pushState = history.pushState;
+    history.pushState = function(state) {
+        if (typeof history.onpushstate == "function")
+            history.onpushstate({state: state});
+
+        document.dispatchEvent(twc_pageReloadedEvent);
+
+        return pushState.apply(history, arguments);
+    };
+})(window.history);
